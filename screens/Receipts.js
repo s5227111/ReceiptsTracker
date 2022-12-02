@@ -1,36 +1,43 @@
-import { TouchableOpacity, View, StyleSheet, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Button, Image, View, Platform } from "react-native";
+// import * as ImagePicker from "expo-image-picker";
+import callGoogleVisionAsync from "../components/HelperFunction";
 import ImagePickerComponent from "../components/ImagePicker";
-import Camera from "../components/CameraPhoto";
-import callGoogleVisionAsync from "../helperFunctions.js";
 
-const Receipts = () => {
+// export default function ImagePickerExample() {
+//   const [image, setImage] = useState(null);
+
+//   const pickImage = async () => {
+//     // No permissions request is necessary for launching the image library
+//     let result = await ImagePicker.launchImageLibraryAsync({
+//       mediaTypes: ImagePicker.MediaTypeOptions.All,
+//       allowsEditing: true,
+//       aspect: [4, 3],
+//       quality: 1,
+//     });
+
+//     console.log(result);
+
+//     if (!result.canceled) {
+//       setImage(result.assets[0].uri);
+//     }
+//   };
+
+//   return (
+//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//       <Button title="Pick an image from camera roll" onPress={pickImage} />
+//       {image && (
+//         <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+//       )}
+//     </View>
+//   );
+// }
+
+export default function Receipts() {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
-        <ImagePickerComponent onSubmit={callGoogleVisionAsync} />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Camera />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text>Or enter it manually</Text>
-      </TouchableOpacity>
+    <View>
+      {/*Replace the onSubmit handler:*/}
+      <ImagePickerComponent onSubmit={callGoogleVisionAsync} />
     </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 200,
-    flex: 1,
-    alignItems: "center",
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10,
-    borderRadius: 10,
-  },
-});
-
-export default Receipts;
+}

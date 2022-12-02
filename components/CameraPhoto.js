@@ -19,14 +19,36 @@ export default function CameraComponent() {
   return (
     <View style={styles.container}>
       <Camera style={styles.camera} type={type}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
+        {/* <View style={styles.buttonContainer}> */}
+        <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
+          <Text style={styles.text}>Flip Camera</Text>
+        </TouchableOpacity>
+        {/* </View> */}
       </Camera>
     </View>
   );
 }
 
-const styles = StyleSheet.create({ ... });
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+  },
+  camera: {
+    // flex: 1,
+  },
+  buttonContainer: {
+    // flex: 1,
+    // backgroundColor: "transparent",
+    // flexDirection: "row",
+  },
+  button: {
+    // flex: 1,
+    // alignSelf: "flex-end",
+    // alignItems: "center",
+  },
+  text: {
+    // fontSize: 18,
+    // marginBottom: 10,
+    // color: "black",
+  },
+});

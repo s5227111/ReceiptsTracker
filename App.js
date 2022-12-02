@@ -3,10 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Home from "./screens/Home";
-import Receipts from "./screens/Receipts";
 import Charts from "./screens/Charts";
 import colors from "./design_system/colors";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Receipts from "./screens/Receipts";
+import ReceiptsCamera from "./screens/ReceiptsCamera";
 
 const Tab = createMaterialBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -42,6 +43,7 @@ export default function App() {
           name="Home"
           component={HomeStackScreen}
         />
+        {/* IMAGE PICKER */}
         <Tab.Screen
           options={{
             tabBarLabel: "Receipts",
@@ -51,6 +53,17 @@ export default function App() {
           }}
           name="Receipts"
           component={Receipts}
+        />
+        {/* CAMERA */}
+        <Tab.Screen
+          options={{
+            tabBarLabel: "CAMERA",
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="camera" color={color} size={26} />
+            ),
+          }}
+          name="ReceiptsCamera"
+          component={ReceiptsCamera}
         />
         <Tab.Screen
           options={{
